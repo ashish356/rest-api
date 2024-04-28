@@ -60,7 +60,7 @@ public class ResourceServiceImpl implements ResourceService{
 		Resource resource=resourceRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Resource", "id", id));
 		
 		resource.setName(resourceDto.getName());
-		resource.setProject(resource.getProject());
+		resource.setProject(resourceDto.getProject());
 		
 		Resource updatedResource=resourceRepository.save(resource);
 		return entityToDto(updatedResource);
